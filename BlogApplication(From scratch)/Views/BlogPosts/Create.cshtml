@@ -1,0 +1,75 @@
+﻿@model BlogApplication_From_scratch_.Models.BlogPost
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-lg-8">
+            <div class="card shadow">
+                <div class="card-header bg-primary text-white">
+                    <h6 class="m-0 font-weight-bold">Create Blog Post</h6>
+                </div>
+                <div class="card-body">
+                    <form asp-action="Create">
+                        <div class="mb-3">
+                            <label asp-for="Heading" class="form-label font-weight-bold">Heading</label>
+                            <input asp-for="Heading" class="form-control" />
+                            <span asp-validation-for="Heading" class="text-danger"></span>
+                        </div>
+                        <div class="mb-3">
+                            <label asp-for="Title" class="form-label font-weight-bold">Title</label>
+                            <input asp-for="Title" class="form-control" />
+                            <span asp-validation-for="Title" class="text-danger"></span>
+                        </div>
+                        <div class="mb-3">
+                            <label asp-for="Content" class="form-label font-weight-bold">Content</label>
+                            <textarea asp-for="Content" class="form-control" rows="6"></textarea>
+                            <span asp-validation-for="Content" class="text-danger"></span>
+                        </div>
+                        <div class="mb-3">
+                            <label asp-for="ShortDescription" class="form-label font-weight-bold">Short Description</label>
+                            <input asp-for="ShortDescription" class="form-control" />
+                            <span asp-validation-for="ShortDescription" class="text-danger"></span>
+                        </div>
+                        <div class="mb-3">
+                            <label asp-for="FeaturedImgUrl" class="form-label font-weight-bold">Featured Image URL</label>
+                            <input asp-for="FeaturedImgUrl" class="form-control" />
+                            <span asp-validation-for="FeaturedImgUrl" class="text-danger"></span>
+                        </div>
+                        <div class="mb-3">
+                            <label asp-for="UrlHandle" class="form-label font-weight-bold">URL Handle</label>
+                            <input asp-for="UrlHandle" class="form-control" />
+                            <span asp-validation-for="UrlHandle" class="text-danger"></span>
+                        </div>
+                        <div class="mb-3">
+                            <label asp-for="Author" class="form-label font-weight-bold">Author</label>
+                            <input asp-for="Author" class="form-control" />
+                            <span asp-validation-for="Author" class="text-danger"></span>
+                        </div>
+                        <div class="mb-3 form-check">
+                            <input class="form-check-input" asp-for="visible" />
+                            <label class="form-check-label font-weight-bold">Visible</label>
+                        </div>
+                        <div class="mb-3">
+                            <label for="Tags" class="form-label font-weight-bold">Tags</label>
+                            <input type="text" name="Tags" id="Tags" class="form-control" placeholder="Enter tags separated by commas" />
+                        </div>
+                        <div class="d-grid">
+                            <input type="submit" value="Create" class="btn btn-primary" />
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="mt-3 text-center">
+    <a asp-action="Index" class="btn btn-secondary">Back to Blogs</a>
+</div>
+
+@section Scripts {
+    await Html.RenderPartialAsync("_ValidationScriptsPartial");
+}

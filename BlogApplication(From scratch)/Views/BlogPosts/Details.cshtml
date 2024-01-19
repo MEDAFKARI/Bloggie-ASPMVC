@@ -1,0 +1,44 @@
+﻿@model BlogApplication_From_scratch_.Models.BlogPost
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<div class="container m-3">
+    <div class="row">
+        <div class="col-md-8 offset-md-2">
+            <div class="card shadow mb-4">
+                <div class="card-header py-3">
+                    <h6 class="m-0 font-weight-bold text-primary">@Html.DisplayFor(model => model.Title)</h6>
+                </div>
+                <div class="card-body">
+                    <div class="media">
+                        <div class="media-body">
+                            <small class="text-muted">Published on: @Html.DisplayFor(model => model.PublishedDate)</small><br />
+                            <small class="text-muted">by: @Html.DisplayFor(model => model.Author)</small>
+                        </div>
+                    </div>
+                    <img src="@Html.DisplayFor(model => model.FeaturedImgUrl)" alt="Featured Image" class="img-fluid rounded mx-auto d-block m-3" />
+                    <p class="card-text m-4">@Html.Raw(Model.Content)</p>
+                    <p>
+                        @if (Model.Tags.Count > 0)
+                        {
+                            <strong>Tags:</strong> @foreach (var tag in Model.Tags)
+                            {
+                                <span>
+                                    @Html.DisplayFor(modelItem => tag.Name)
+                                </span>
+                            }
+                        }
+                        else
+                        {
+                            <span>No tags available.</span>
+                        }
+                    </p>
+
+                    <a asp-action="Index" class="btn btn-secondary">Read Other Stuff...</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

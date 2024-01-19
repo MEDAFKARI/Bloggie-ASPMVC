@@ -1,0 +1,41 @@
+﻿@model BlogApplication_From_scratch_.Models.PostTag
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<div class="d-flex justify-content-center">
+    <h1>Adding New Tag</h1>
+</div>
+
+
+<hr />
+<div class="d-flex justify-content-center row m-4">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="All" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Name" class="control-label"></label>
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class="form-group mb-3">
+                <label asp-for="DisplayName" class="control-label"></label>
+                <input asp-for="DisplayName" class="form-control" />
+                <span asp-validation-for="DisplayName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div class="d-flex justify-content-center">
+    <a asp-action="Index">View Tag List</a>
+</div>
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

@@ -1,0 +1,23 @@
+﻿@model BlogApplication_From_scratch_.Models.PostTag
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-8 offset-md-2">
+            <div class="card shadow mb-4">
+                <div class="card-header py-3">
+                    <h6 class="m-0 font-weight-bold text-primary">@Html.DisplayNameFor(model => model.Name)</h6>
+                </div>
+                <div class="card-body">
+                    <h5 class="card-title">@Html.DisplayFor(model => model.Name)</h5>
+                    <p class="card-text">@Html.DisplayFor(model => model.DisplayName)</p>
+                    <a asp-action="Edit" asp-route-id="@Model?.Id" class="btn btn-primary">Edit</a>
+                    <a asp-action="Index" class="btn btn-secondary">Back to List</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
